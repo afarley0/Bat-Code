@@ -1,0 +1,31 @@
+%% This code is written in MatLab. This code is designed to communicate with the Arduino via serial communication
+%% This is the openning section
+arduino=serial('COM1','BaudRate',9600);
+
+fopen(arduino);
+pause(1);
+%% This is the writing section
+fprintf('How many cycles would you like to run? \n')
+runCount = input('');
+fprintf('\n')
+fprintf('How many steps shall the nose move? \n')
+noseStep = input('');
+fprintf('\n')
+fprintf('How many steps shall the ear move? \n')
+earStep = input('');
+fprintf('\n')
+fprintf('RUNNING \n')
+fprintf(arduino, '%s','go ');
+fprintf(arduino, '%d', runCount);
+fprintf(arduino, '%d',noseStep);
+fprintf(arduino, '%d',earStep);
+fprintf('SERIAL SENT \n')
+%% This is the reading section
+fprintf(fscanf(arduino,'%s'));
+fprintf(fscanf(arduino,'%s'));
+fprintf(fscanf(arduino,'%s'));
+%% This is the closing section
+fclose(arduino);
+delete(arduino)
+clear arduino
+fprintf('SEQUENCE COMPLETE \n')
