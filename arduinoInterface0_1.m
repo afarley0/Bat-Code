@@ -1,5 +1,20 @@
-%% This code is written in MatLab. This code is designed to communicate with the Arduino via serial communication
-%% This 
+%% This code is written in MatLab. This code is designed to communicate with the Arduino via serial communication.  This program runs with motorControl6.1.ino or motorControl6.3.inouploaded to the arduino.
+%   INPUTS:_______________________
+%   noseStep an integer of how steps you wish the nose to travel. A step is
+%   equal to 1.8 degrees of motion.
+%   EX: noseStep = 100;
+%   earStep an integer of how steps you wish the ear to travel. A step is
+%   equal to 1.8 degrees of motion.
+%   EX: earStep = 100;
+%   Commands:_____________________
+%   run; is a command that calls the motors to perform their dynamic motion
+%   stop; is a command that ends this program and no longer allows input
+%   into the arduino until this is run again.
+%   trigger; is a command that will allow a digital high voltage signal to
+%   be sent to pin 52 on the arduino to activate the dynamic motion. This
+%   signal must be sent within around a five second window.
+clear;
+clc;
 arduino=serial('COM1','BaudRate',9600);
 
 fopen(arduino);
