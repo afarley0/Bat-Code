@@ -1,5 +1,13 @@
-%% This code is written in MatLab. This code is designed to communicate with the Arduino via serial communication
-%% This 
+%% This code is written in MatLab. This code is designed to communicate with the Arduino via serial communication.  This program runs with motorControl6.ino uploaded to the arduino.
+%   INPUTS:_______________________
+%   runCount an integer of how many times you wish to run the dynamic control.
+%   EX: runCount = 1;
+%   noseStep an integer of how steps you wish the nose to travel. A step is
+%   equal to 1.8 degrees of motion.
+%   EX: noseStep = 100;
+%   earStep an integer of how steps you wish the ear to travel. A step is
+%   equal to 1.8 degrees of motion.
+%   EX: earStep = 100;
 arduino=serial('COM1','BaudRate',9600);
 
 fopen(arduino);
