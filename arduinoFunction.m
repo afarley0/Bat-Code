@@ -1,5 +1,22 @@
 function [ confirmation ] = arduinoFunction( COM , runCount , noseStep , earStep )
-%% This code is written in MatLab. This code is designed to communicate with the Arduino via serial communication 
+%% This code is written in MatLab. This code is designed to communicate with the Arduino via serial communication.  This program runs with motorControl6.ino uploaded to the arduino.
+%   INPUTS:_______________________
+%   COM is a string of the serial communications port you will be using.
+%   EX: COM = 'COM1';
+%   runCount an integer of how many times you wish to run the dynamic control.
+%   EX: runCount = 1;
+%   noseStep an integer of how steps you wish the nose to travel. A step is
+%   equal to 1.8 degrees of motion.
+%   EX: noseStep = 100;
+%   earStep an integer of how steps you wish the ear to travel. A step is
+%   equal to 1.8 degrees of motion.
+%   EX: earStep = 100;
+%   OUTPUTS:______________________
+%   confirmation is a number returned to confirm that the data was recieved
+%   and the program successfully ran. If confirmation is equal to 1, the
+%   data was sent, recieved, and the stepper motors ran. If confirmation is
+%   zero, then either the data sent was not the same as recieved, or the
+%   motors did not fully run.
 arduino = serial(COM ,'BaudRate',9600);
 
 fopen(arduino);
